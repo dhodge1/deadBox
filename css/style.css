@@ -1,0 +1,314 @@
+body {
+	padding-top: 50px;
+	/*padding-bottom: 20px;*/
+	color: #746161;
+}
+
+h2 {
+	font-size: 3.2rem;
+	font-weight: 300;
+}
+
+footer {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	background-color: #5CB8A2;
+}
+
+hr {
+	margin: 0;
+}
+
+a, a:hover, a:focus {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a.logOut, a.logOut:hover, a.logOut:focus {
+	color: #5CB8A2;
+	text-decoration: none;
+}
+
+.voteText {
+	margin: 0px;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	padding-bottom: 30px;
+}
+
+#button1:focus {
+    outline: none;
+}
+
+.logOutButton:focus {
+	outline: none;
+	color: #5CB8A2;
+}
+
+.logOutButton:active {
+	background-image: none;
+  	outline: 0;
+  	color: #5CB8A2;
+  	-webkit-box-shadow: none;
+          	box-shadow: none;
+}
+
+.logOutButton, .logOutButton:focus {
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
+	color: #5CB8A2;
+	padding: 6px 18px;
+	/*margin: 0px;
+	padding: 0px;*/
+}
+
+.actorButton:focus {
+	outline: none;
+}
+
+.actorButton:active {
+	background-image: none;
+  	outline: 0;
+  	-webkit-box-shadow: none;
+          	box-shadow: none;
+}
+
+.actorButton, .actorButton:focus {
+	background-color: #F8F8F8;
+	border-color: #F8F8F8;
+	margin: 0px;
+	padding: 0px;
+}
+
+.btn-success, .btn-lg, .btn-primary {
+	background-color: #5CB8A2;
+	border-color: #5CB8A2;
+}
+
+.btn-success:hover, .btn-primary:hover {
+	background-color: #0F7468;
+	border-color: #0F7468;
+}
+
+.navbar {
+	background-color: #ffffff;
+}
+
+.navbar-brand {
+	color: #5CB8A2;
+}
+
+.navbar-brand:hover {
+	color: #0F7468;
+}
+
+.jumbotron {
+	padding-top: 90px;
+	padding-bottom: 90px;
+	background-image: url(../img/wood2.jpg);
+	background-size: cover;
+	color: #ffffff;
+}
+
+.highlights {
+	padding-top: 70px;
+	padding-bottom: 100px;
+}
+
+.highText, .forText {
+	padding-bottom: 70px;
+}
+
+.forText {
+	padding-top: 70px;
+}
+
+.forSubText {
+	margin-top: -50px;
+}
+
+.glyphicon {
+	font-size: 100px;
+	padding-bottom: 30px;
+	color: #5CB8A2;
+}
+
+.drop {
+	font-size: 10px;
+	padding-bottom: 2px;
+	margin-left: 5px;
+}
+
+.searchIcon {
+	font-size: 15px;
+	padding-bottom: 0px;
+}
+
+.searchButton {
+	font-size: 15px;
+	padding: 0px;
+	margin-left: -35px;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+
+.quotes {
+	padding-top: 90px;
+	padding-bottom: 100px;
+	background-color: #5CB8A2;
+}
+
+.quoteText {
+	padding-bottom: 30px;
+}
+
+.quote1 {
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.quotePic {
+	border-radius: 100px;
+	margin: 30px 0;
+}
+
+.highQuote {
+	color: #ffffff;
+}
+
+.login, .signup {
+	background-color: #eaedf1;
+}
+
+body.login #login {
+	max-width: 500px;
+	padding: 60px 60px 40px;
+	background: #fff;
+	text-align: center;
+	margin: 40px auto 20px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+.form-group {
+	text-align: left;
+}
+
+.rText {
+	width: 100%;
+}
+
+.up {
+	color: #5CB8A2;
+}
+
+.icon-bar {
+	background-color: #5CB8A2;
+}
+
+.dropdown-toggle {
+	color: #5CB8A2;
+}
+
+.dropdown-toggle:hover {
+	color: #0F7468;
+	background-color: #0F7468;
+	border-color: #0F7468;
+}
+
+.search {
+	width: 400px;
+	margin-left: 50px;
+	border-radius: 20px;
+}
+
+.dropdown-menu > li > a {
+	color: #5CB8A2;
+}
+
+.content {
+	padding-top: 50px;
+}
+
+.main {
+	background-color: #F8F8F8;
+}
+
+.thumbnail, .featurette-image {
+	border-radius: 100px;
+	margin-bottom: 50px;
+}
+
+.plain, .plain:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.upLine {
+	padding-bottom: 15px;
+}
+
+#comp {
+	margin: auto;
+}
+
+#top {
+	margin-top: 100px;
+	margin-bottom: 60px;*/
+}
+
+#left {
+	padding-left: 50px;
+	padding-top: 240px;
+}
+
+#left2 {
+	padding-left: 50px;
+	padding-top: 260px;
+}
+
+#right {
+	padding-top: 260px;
+	padding-right: 50px;
+}
+
+.pic {
+	max-width: 970px;
+}
+
+.ui {
+	padding-top: 70px;
+	padding-bottom: 100px;
+}
+
+.voteImg {
+	max-width: 70%;
+	max-height: 70%;
+	margin: auto;
+	padding-top: 20px;
+}
+
+.actor {
+	margin-bottom: 0px;}
+
+.voteBtn {
+	margin: auto;
+}
+
+.error {
+	color: red;
+}
+
+.actorName, {
+	margin-top: 10px;
+	margin-bottom: 40px;
+}
+
+.relDate {
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+
+.selected {
+	margin-bottom: 10px;
+}
