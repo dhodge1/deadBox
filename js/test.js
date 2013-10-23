@@ -4,6 +4,22 @@ var form = document.getElementById("form1"),
 	container = document.getElementById("content"),
 	anchors = document.getElementsByClassName("thumbs");
 
+jQuery.extend({
+    getValues: function(url) {
+        var result = null;
+        $.ajax({
+            url: url,
+            type: 'get',
+            async: false,
+            success: function(data) {
+                result = data;
+            }
+        });
+        
+       return result;
+    }
+});
+
 function addURLParam(url, name, value) {
 	url += (url.indexOf("?") == -1 ? "?" : "&");
 	url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
@@ -168,12 +184,18 @@ function doMagic() {
 								var actID = id;
 								var movID = $('#voteImg').attr("name");
 
-								//$.post('http://ps11.pstcc.edu/~c2230a11/site/php/process_vote.php', {actorID: actID, movieID: movID});
+								var movieSynopsis = $.getValues("http://api.themoviedb.org/3/movie/"+movID+"?api_key=a592c64a025525d496607cdd273be6b3").overview;
+								var movieImg = $.getValues("http://api.themoviedb.org/3/movie/"+movID+"?api_key=a592c64a025525d496607cdd273be6b3").poster_path;
+								var actorBio = $.getValues("http://api.themoviedb.org/3/person/"+actID+"?api_key=a592c64a025525d496607cdd273be6b3").biography;
+
+								//alert(movieSynopsis);
+								//alert(movieImg);
+								//alert(actorBio);
 
 								$.ajax({
 									  type: "POST",
 									  url: 'http://ps11.pstcc.edu/~c2230a11/site/php/process_vote.php',
-									  data: {actorID: actID, movieID: movID},
+									  data: {actorID: actID, movieID: movID, movieSynopsis: movieSynopsis, movieImg: movieImg, actorBio: actorBio},
 									  success: function(){
 									  	window.location.href = "http://ps11.pstcc.edu/~c2230a11/site/main.php";
 									  }

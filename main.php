@@ -7,13 +7,13 @@
 	require_once('./php/database.php');
 	require('./php/user_db.php');
 
-	include('./php/TMDb.php');
+	/*include('./php/TMDb.php');
 	$tmdb = new TMDb('a592c64a025525d496607cdd273be6b3');
 	$id = 287;
-	$brad = $tmdb->getPerson($id);
+	$brad = $tmdb->getPerson($id);*/
 
 	$userID = $_SESSION['userID'];
-	$actors = get_actors('actorID', 'votes', 'userID', $userID);
+	$actors = get_actors('actorID', 'profileImg', 'actorBio', 'actorName', 'votes', 'userID', $userID);
 	$votes = get_topVotes();
 	$count = 0;
 	
@@ -78,17 +78,19 @@
 				?>
 				<?php foreach ($actors as $actor) : ?>
 					<?php 
-						$aID = $actor['actorID'];
+						//$aID = $actor['actorID'];
 						foreach ($votes as $vote) {
 							if ($vote['aID'] == $actor['actorID']) {
 								$topMovie = $vote['topMovie'];
-								$mID = (int) $topMovie;
-								$currentMovie = $tmdb->getMovie($mID);
+								//$mID = (int) $topMovie;
+								//$currentMovie = $tmdb->getMovie($mID);
+								$movieImg = $vote['movieImg'];
+								$movieSynopsis = $vote['movieSynopsis'];
 							}
 						}
-						$aiD = (int) $aID;
-						$current = $tmdb->getPerson($aiD);
-						$current['biography'] = str_replace('"',' ', $current['biography']);
+						//$aiD = (int) $aID;
+						//$current = $tmdb->getPerson($aiD);
+						//$current['biography'] = str_replace('"',' ', $current['biography']);
 						if (($count == 0) || ($count % 4 == 0)) {
 							echo '<div class="row featurette"></div>';
 						}
@@ -97,8 +99,8 @@
 					?>
 					<div class="col-lg-3 col-sm-3 col-md-3 col-xs-6">
 			          	<button type="button" class="btn actorButton">
-			          		<img class="featurette-image img-responsive actor" id="<?php echo $current['id']; ?>" src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $current['profile_path']; ?>" data-src="holder.js/500x500/auto" alt="<?php echo $current['name']; ?>" name="<?php echo $current['biography']; ?>" width="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $currentMovie['poster_path']?>" usemap="<?php echo $currentMovie['overview']?>">
-			          		<p class="actorName"><?php echo $current['name']; ?></p>
+			          		<img class="featurette-image img-responsive actor" id="<?php echo $actor['actorID']; ?>" src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $actor['profileImg']; ?>" data-src="holder.js/500x500/auto" alt="<?php echo $actor['actorName']; ?>" name="<?php echo $actor['actorBio']; ?>" width="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $movieImg?>" usemap="<?php echo $movieSynopsis?>">
+			          		<p class="actorName"><?php echo $actor['actorName']; ?></p>
 			          	</button>
 			        </div>
 				<?php endforeach; ?>

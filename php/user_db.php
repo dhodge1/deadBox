@@ -51,9 +51,9 @@ function get_userID($col1, $col2, $tab, $par) {
 	return $userID;
 }
 
-function get_actors($aID, $table, $uID, $par) {
+function get_actors($aID, $aImg, $aBio, $aName, $table, $uID, $par) {
 	global $db;
-	$q5 = "SELECT $aID
+	$q5 = "SELECT $aID, $aImg, $aBio, $aName
 		  FROM $table
 		  WHERE $uID = '$par'";
 	$actors = $db->query($q5);
@@ -62,7 +62,7 @@ function get_actors($aID, $table, $uID, $par) {
 
 function get_topVotes() {
 	global $db;
-	$q6 = "select actorID as aID, (select movieID from votes where actorID=aID group by userID order by count(*) DESC limit 0,1) as topMovie from votes group by actorID";
+	$q6 = "select actorID as aID, movieImg, movieSynopsis, (select movieID from votes where actorID=aID group by userID order by count(*) DESC limit 0,1) as topMovie from votes group by actorID";
 	$topVotes = $db->query($q6);
 	return $topVotes;
 }
