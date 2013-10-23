@@ -130,6 +130,7 @@
 		  </div><!-- /.modal -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="./js/bootstrap.js"></script>
+		<script src="./js/typeahead.js"></script>
 		<script src="./js/test.js"></script>
 	</body>
 </html>

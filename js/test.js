@@ -145,7 +145,7 @@ function doMagic() {
 	url = addURLParam("http://api.themoviedb.org/3/search/person", "api_key", "a592c64a025525d496607cdd273be6b3");
 	url = addURLParam(url, "query", q1_r);
 	//this commented out line below will make the search more flexible but less stable
-	//url = addURLParam(url, "search_type", "ngram");
+	url = addURLParam(url, "search_type", "ngram");
 	//open the XHR object with a get request to the url asynchronously
 	xhr.open("get", url, true);
 	//set the request headers to expect JSON data back
@@ -291,6 +291,16 @@ function doMagic() {
 	};
 	xhr.send(null); //actor request
 }
+
+/*$('.typeahead').typeahead({
+  name: 'actors',
+  local: [
+  		"will smith",
+  		"brad pitt",
+  		"natalie portman",
+  		"gary oldman"
+  ]
+});*/
 
 //simple function that redirects focus to the search button when the enter key is hit within the search box
 text.addEventListener("keydown", function(event) {
