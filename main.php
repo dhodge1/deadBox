@@ -1,20 +1,21 @@
 <?php
-	session_start();
+	session_start();						//start session and if valid isn't set then redirect to the splash page
 	if ($_SESSION['valid'] != 1) {
 		header("Location: ./index.php");
 	}
 
+	//require necessary files to connect to database
 	require_once('./php/database.php');
+	//require databse functions file
 	require('./php/user_db.php');
 
-	/*include('./php/TMDb.php');
-	$tmdb = new TMDb('a592c64a025525d496607cdd273be6b3');
-	$id = 287;
-	$brad = $tmdb->getPerson($id);*/
-
+	//grab the userID from the current session
 	$userID = $_SESSION['userID'];
+	//call get_actors() which queries the database for the actors that the user has voted for
 	$actors = get_actors('actorID', 'profileImg', 'actorBio', 'actorName', 'votes', 'userID', $userID);
+	//query the database for the top voted movie (stopping point) for each actor aggregated for all users
 	$votes = get_topVotes();
+	//count created to add bootstrap rows every four actors
 	$count = 0;
 	
 ?>
@@ -73,31 +74,31 @@
 			<div class="container" id="content">
 				<?php 
 					if ($actors->num_rows == 0) {
-						echo '<h2>Go forth and search to vote!</h2>';
+						echo '<h2>Go forth and search to vote!</h2>';       //if the user hasn't voted for any actors yet, tell them to do so
 					}
 				?>
-				<?php foreach ($actors as $actor) : ?>
+				<?php foreach ($actors as $actor) : ?>						
 					<?php 
-						//$aID = $actor['actorID'];
+						//for every actor that the user has voted for, check against the top votes.
+						//if the actorID from top votes matches the current actor, pull in the information for the top voted movie													
 						foreach ($votes as $vote) {
 							if ($vote['aID'] == $actor['actorID']) {
 								$topMovie = $vote['topMovie'];
-								//$mID = (int) $topMovie;
-								//$currentMovie = $tmdb->getMovie($mID);
 								$movieImg = $vote['movieImg'];
 								$movieSynopsis = $vote['movieSynopsis'];
 							}
 						}
-						//$aiD = (int) $aID;
-						//$current = $tmdb->getPerson($aiD);
-						//$current['biography'] = str_replace('"',' ', $current['biography']);
+						//every four actors insert a new row
 						if (($count == 0) || ($count % 4 == 0)) {
 							echo '<div class="row featurette"></div>';
 						}
+						//increment the count
 						$count++;
+						//flush the buffer contents (a silly optimization)
 						flush();
 					?>
 					<div class="col-lg-3 col-sm-3 col-md-3 col-xs-6">
+			          	<!--this is bad practice. store the necessary information in unrelated html attributes. this is a crazy hack. don't do this.-->
 			          	<button type="button" class="btn actorButton">
 			          		<img class="featurette-image img-responsive actor" id="<?php echo $actor['actorID']; ?>" src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $actor['profileImg']; ?>" data-src="holder.js/500x500/auto" alt="<?php echo $actor['actorName']; ?>" name="<?php echo $actor['actorBio']; ?>" width="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $movieImg?>" usemap="<?php echo $movieSynopsis?>">
 			          		<p class="actorName"><?php echo $actor['actorName']; ?></p>
