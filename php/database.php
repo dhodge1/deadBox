@@ -1,4 +1,5 @@
 <?php
+    //simple script that connects to the database and spits out an error if it can't connect
     $host = 'localhost';
     $dbname='c2230a11test';
     $username = 'c2230a11';
