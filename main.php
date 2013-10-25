@@ -99,10 +99,10 @@
 					?>
 					<div class="col-lg-3 col-sm-3 col-md-3 col-xs-6">
 			          	<!--this is bad practice. store the necessary information in unrelated html attributes. this is a crazy hack. don't do this.-->
-			          	<button type="button" class="btn actorButton">
+			          	<a href="#" class="actorButton tada">
 			          		<img class="featurette-image img-responsive actor" id="<?php echo $actor['actorID']; ?>" src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $actor['profileImg']; ?>" data-src="holder.js/500x500/auto" alt="<?php echo $actor['actorName']; ?>" name="<?php echo $actor['actorBio']; ?>" width="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $movieImg?>" usemap="<?php echo $movieSynopsis?>">
-			          		<p class="actorName"><?php echo $actor['actorName']; ?></p>
-			          	</button>
+			          		<p class="actorName text-center"><?php echo $actor['actorName']; ?></p>
+			          	</a>
 			        </div>
 				<?php endforeach; ?>
 			</div>	

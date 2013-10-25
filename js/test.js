@@ -314,7 +314,79 @@ text.addEventListener("keydown", function(event) {
 //the false sets the event to bubble and not capture
 btn.addEventListener("click", doMagic, false);
 //event handler that says when an actor is clicked present his or her biography
-$('.actor').on("click", presentBio);
+$('.actor').on("click", function(event) {
+	event.preventDefault;
+	//clear current contents of the main page
+	container.innerHTML = "";
+	//create a new div to hold all of the actor/top movie information
+	var aDiv = document.createElement("div");
+	//apply bootstrap class names to conform to grid with media breakpoints
+	aDiv.className = "col-lg-4 col-sm-4 col-md-4 col-xs-4";
+	//make a new img element for the actor profile image
+	var actorPic = document.createElement("img");
+	//give the img responsive class names
+	actorPic.className = "featurette-image img-responsive";
+	//grab the img src for the actor profile image from the image that was originally clicked on
+	actorPic.src = $(this).attr("src");
+	//set the data-src attribute per bootstrap placeholder
+	actorPic.dataSrc="holder.js/500x500/auto";
+	//append the profile image to the div
+	aDiv.appendChild(actorPic);
+	//append the div to the now empty container
+	container.appendChild(aDiv);
+	//create another div to hold the bio
+	var bDiv = document.createElement("div");
+	//apply bootstrap classes to conform to grid
+	bDiv.className = "col-lg-8 col-sm-8 col-md-8 col-xs-8"
+	//create a header element for the actor name
+	var actorHeader = document.createElement("h1");
+	//grab the name from the element that was clicked on and set it to the inner html of the actor header
+	actorHeader.innerHTML = $(this).attr("alt");
+	//create a text element for actor bio
+	var actorText = document.createElement("p");
+	//grab the bio information from the element that was clicked on and set as inner html of actor text
+	actorText.innerHTML = $(this).attr("name");
+	//append things to other things
+	bDiv.appendChild(actorHeader);
+	bDiv.appendChild(actorText);
+	//append things to container
+	container.appendChild(bDiv);
+	//create a div for the top movie info
+	var row = document.createElement("div");
+	//give the div a bootstrap class name to serve as a row between both section (actor and topmovie)
+	row.className = "row featurette";
+	//append row to container
+	container.appendChild(row);
+	//create new div for top movie image with proper bootstrap classnames for the grid
+	var cDiv = document.createElement("div");
+	cDiv.className = "col-lg-4 col-sm-4 col-md-4 col-xs-4";
+	//create an image element for the top movie and set responsive bootstrap classes
+	var filmPic = document.createElement("img");
+	filmPic.className = "featurette-image img-responsive";
+	//grab img src from attribute on the element that was clicked
+	//in this case that would be the width. this is a bad practice. don't do this.
+	filmPic.src = $(this).attr("width");
+	filmPic.dataSrc="holder.js/500x500/auto";
+	//append top movie image to div and append div to container
+	cDiv.appendChild(filmPic);
+	container.appendChild(cDiv);
+	//create final div for top movie synopsis with bootstrap grid classnames
+	var dDiv = document.createElement("div");
+	dDiv.className = "col-lg-8 col-sm-8 col-md-8 col-xs-8"
+	//create new header to store a funny title about the synopsis into
+	var filmHeader = document.createElement("h1");
+	var filmHeaderText = document.createTextNode("The people have spoken: ");
+	//append header to top movie synopsis div
+	filmHeader.appendChild(filmHeaderText);
+	//create new paragraph element to store actual synopsis
+	var filmText = document.createElement("p");
+	//grab synopsis from non-related attribute on the element that was clicked and set as inner html of paragraph
+	filmText.innerHTML = $(this).attr("usemap");
+	//append the things to the div then append div to container
+	dDiv.appendChild(filmHeader);
+	dDiv.appendChild(filmText);
+	container.appendChild(dDiv);
+});
 
 
 
