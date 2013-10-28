@@ -10,7 +10,7 @@ body {
 /* Default styles for the container */
 .joyride-tip-guide {
   position: absolute;
-  background: #000;
+  background: #191919;
   background: rgba(0,0,0,0.8);
   display: none;
   color: #fff;
@@ -165,8 +165,9 @@ body {
   font-size: 13px;
   text-decoration: none;
   color: rgb(255,255,255);
-  border: solid 1px rgb(0,60,180);
-  background: rgb(0,99,255);
+  border: solid 1px #5CB8A2;
+  background: #5CB8A2;
+  /*
   background: -moz-linear-gradient(top, rgb(0,99,255) 0%, rgb(0,85,214) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(0,99,255)), color-stop(100%,rgb(0,85,214)));
   background: -webkit-linear-gradient(top, rgb(0,99,255) 0%,rgb(0,85,214) 100%);
@@ -174,6 +175,7 @@ body {
   background: -ms-linear-gradient(top, rgb(0,99,255) 0%,rgb(0,85,214) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0063ff', endColorstr='#0055d6',GradientType=0 );
   background: linear-gradient(top, rgb(0,99,255) 0%,rgb(0,85,214) 100%);
+  */
   text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
@@ -185,8 +187,9 @@ body {
 
 .joyride-next-tip:hover {
   color: rgb(255,255,255) !important;
-  border: solid 1px rgb(0,60,180) !important;
-  background: rgb(43,128,255);
+  border: solid 1px #0F7468 !important;
+  background: #0F7468;
+  /*
   background: -moz-linear-gradient(top, rgb(43,128,255) 0%, rgb(29,102,211) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(43,128,255)), color-stop(100%,rgb(29,102,211)));
   background: -webkit-linear-gradient(top, rgb(43,128,255) 0%,rgb(29,102,211) 100%);
@@ -194,6 +197,7 @@ body {
   background: -ms-linear-gradient(top, rgb(43,128,255) 0%,rgb(29,102,211) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b80ff', endColorstr='#1d66d3',GradientType=0 );
   background: linear-gradient(top, rgb(43,128,255) 0%,rgb(29,102,211) 100%);
+  */
 }
 
 .joyride-timer-indicator-wrap {

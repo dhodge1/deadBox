@@ -27,6 +27,7 @@
     	<title>deadBox</title>
     	<link rel="shortcut icon" href="./img/favicon.ico">
 		<link rel="stylesheet" href="./css/bootstrap.css">
+		<link rel="stylesheet" href="./css/joyride-2.1.css">
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
 	<?php
@@ -41,7 +42,7 @@
 			            <span class="icon-bar"></span>
 			            <span class="icon-bar"></span>
           			</button>
-          			<a href="http://ps11.pstcc.edu/~c2230a11/site/main.php" class="navbar-brand">deadBox</a>
+          			<a href="http://ps11.pstcc.edu/~c2230a11/site/main.php" class="navbar-brand" id="preSearch1">deadBox</a>
           		</div>
           		<div class="navbar-collapse collapse">
           			<form class="navbar-form navbar-left" id="form1" role="search">
@@ -54,7 +55,7 @@
 				    </form>
           			<ul class="nav navbar-nav navbar-right">
 				      <li class="dropdown">
-				        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello, <?php echo $_SESSION['username']; ?> <span class="glyphicon glyphicon-cog drop"></span></a>
+				        <a href="#" id="preSearch2" class="dropdown-toggle" data-toggle="dropdown">Hello, <?php echo $_SESSION['username']; ?> <span class="glyphicon glyphicon-cog drop"></span></a>
 				        <ul class="dropdown-menu">
 				          <!--<li><a href="#">Profile</a></li>-->
 				          <!--<li><a href="#">Settings</a></li>-->
@@ -128,9 +129,45 @@
 		      </div><!-- /.modal-content -->
 		    </div><!-- /.modal-dialog -->
 		  </div><!-- /.modal -->
+
+		<ol id="preSearchRide">
+			<li data-button="Next">
+				<h2>Welcome!</h2>
+				<p>This is your main page. You will see actors you have voted for here.</p>
+			</li>
+			<li data-id="preSearch1" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<h2>Getting Around</h2>
+				<p>You can get back to this page at any time by clicking the logo.</p>
+			</li>
+			<li data-id="preSearch2" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<h2>Getting Out</h2>
+				<p>Click your name at anytime for the option to log out.</p>
+			</li>
+			<li data-id="text1" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<h2>Searching</h2>
+				<p>Find actors and cast judgment upon them!</p>
+			</li>
+			<li data-button="Next">
+				<h2>Results</h2>
+				<p>After searching, the content of the main page will be replaced with the credits of the searched-for actor/actress in chronological order.</p>
+			</li>
+			<li data-button="Next">
+				<h2>Voting</h2>
+				<p>To vote, click on the film with which you think the actor/actress should have ended his or her career.</p>
+			</li>
+			<li data-button="Let Me Vote Already...">
+				<h2>Personalized Content</h2>
+				<p>After your vote is submitted, any unlucky souls that you have cast judgement upon will appear here.</p>
+				<p>You can click an actor's image to read their bio and view the consensus on when he/she jumped the shark!</p>
+			</li>
+		</ol>
+
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="./js/bootstrap.js"></script>
-		<script src="./js/typeahead.js"></script>
+		<!--<script src="./js/typeahead.js"></script>-->
+		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+    	<script type="text/javascript" src="./js/modernizr.mq.js"></script>
+    	<script type="text/javascript" src="./js/jquery.joyride-2.1.js"></script>
 		<script src="./js/test.js"></script>
 	</body>
 </html>

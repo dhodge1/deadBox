@@ -325,3 +325,7 @@ body.login #login {
 .tada:hover {
 	color: #746161;
 }
+
+#preSearchRide, #postSearchRide {
+	display: none;
+}

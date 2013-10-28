@@ -388,6 +388,20 @@ $('.actor').on("click", function(event) {
 	container.appendChild(dDiv);
 });
 
+//function for joyride tour
+$(window).load(function() {
+    $('#preSearchRide').joyride({
+        autoStart : true,
+        modal:true,
+        expose: true,
+        cookieMonster: true,
+    	cookieName: 'JoyRide',
+    	cookieDomain: false
+    });
+});
+
+
+
 
 
 
