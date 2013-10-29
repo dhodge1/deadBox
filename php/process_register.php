@@ -1,4 +1,5 @@
 <?php
+	session_name("deadBox");
 	session_start();
 	require_once('./database.php');
 	//require('user_db.php');

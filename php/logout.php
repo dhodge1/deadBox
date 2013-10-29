@@ -1,5 +1,6 @@
 <?php
 	//basic script that is called upon logout to destroy the session and redirect to the splash page
+	session_name("deadBox");
 	session_start();
 	
 	session_destroy();

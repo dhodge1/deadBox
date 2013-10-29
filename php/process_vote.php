@@ -2,6 +2,7 @@
 	//this page essentially processes the user votes when the vote button has been clicked
 	
 	//start the session
+	session_name("deadBox");
 	session_start();
 	//get database info
 	require_once('./database.php');

@@ -1,4 +1,5 @@
 <?php
+	session_name("deadBox");
 	session_start();						//start session and if valid isn't set then redirect to the splash page
 	if ($_SESSION['valid'] != 1) {
 		header("Location: ./index.php");

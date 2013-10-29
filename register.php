@@ -1,4 +1,5 @@
 <?php
+	session_name("deadBox");
 	session_start();
 	require('./php/error_function.php');
 ?>
