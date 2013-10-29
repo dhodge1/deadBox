@@ -223,7 +223,7 @@ function doMagic() {
 								myImg[p].src = posterPath[p];
 								myImg[p].name = movieID[p];
 								myImg[p].dataSrc="holder.js/500x500/auto";
-								//myImg[p].alt="Generic placeholder image";
+								myImg[p].alt=id;
 								myP[p] = document.createElement("p");
 								myP[p].className = "text-center relDate";
 								myP[p].innerHTML = releaseDate[p].substring(0, releaseDate[p].length-6);
@@ -239,13 +239,15 @@ function doMagic() {
 							$('.selected').on("click", function() {
 								$('#voteImg').attr("src", $(this).attr("src"));
 								$('#voteImg').attr("name", $(this).attr("name"));
+								$('#voteImg').attr("alt", $(this).attr("alt"));
 							});
 
 							//when the vote button in the modal is clicked, grab some pertinent information from the data stored in the crazy attributes
 							//and then send to process_vote.php via AJAX
 							$('#vote').on("click", function(event) {
 								event.preventDefault();
-								var actID = id;
+								//var actID = id;
+								var actID = $('#voteImg').attr("alt");
 								var movID = $('#voteImg').attr("name");
 
 								//calls the jQuery function defined at the top to store necessary values from ajax requests
