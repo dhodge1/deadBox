@@ -135,6 +135,7 @@
 			<li data-button="Next">
 				<h2>Welcome!</h2>
 				<p>This is your main page. You will see actors you have voted for here.</p>
+				<p>*Please note* This tour uses cookies. Turn them on if you don't want to see this tour after the initial login.</p>
 			</li>
 			<li data-id="preSearch1" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<h2>Getting Around</h2>
@@ -155,6 +156,10 @@
 			<li data-button="Next">
 				<h2>Voting</h2>
 				<p>To vote, click on the film with which you think the actor/actress should have ended his or her career.</p>
+			</li>
+			<li data-button="Next">
+				<h2>Changed your mind?</h2>
+				<p>If at any point you want to change a vote for an actor's drop-dead point, just search for that actor and re-vote!</p>
 			</li>
 			<li data-button="Let Me Vote Already...">
 				<h2>Personalized Content</h2>

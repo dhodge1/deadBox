@@ -299,6 +299,7 @@ body.login #login {
 .actor {
 	margin-bottom: 0px;
 	max-height: 340px;
+	/*max-width: 226px;*/
 }
 
 .voteBtn {
