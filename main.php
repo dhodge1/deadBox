@@ -60,7 +60,7 @@
 				        <ul class="dropdown-menu">
 				          <!--<li><a href="#">Profile</a></li>-->
 				          <!--<li><a href="#">Settings</a></li>-->
-				          <li><a href="http://ps11.pstcc.edu/~c2230a11/feeds/">News</a></li>
+				          <!--<li><a href="http://ps11.pstcc.edu/~c2230a11/feeds/">News</a></li>-->
 				          <li>
 				          		<form action="./php/logout.php" method="post">
 				          			<button type="submit" class="btn logOutButton"><a class="logOut" href="http://ps11.pstcc.edu/~c2230a11/site/index.php">Sign Out</a></button>
