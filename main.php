@@ -9,11 +9,15 @@
 	require_once('./php/database.php');
 	//require databse functions file
 	require('./php/user_db.php');
+	//include TMDb wrapper class
+	//include('./php/TMDb.php');
+	//create new tmdb object with my API key
+	//$tmdb = new TMDb('a592c64a025525d496607cdd273be6b3');
 
 	//grab the userID from the current session
 	$userID = $_SESSION['userID'];
 	//call get_actors() which queries the database for the actors that the user has voted for
-	$actors = get_actors('actorID', 'profileImg', 'actorBio', 'actorName', 'votes', 'userID', $userID);
+	$actors = get_actors('actorID', 'profileImg', 'actorBio', 'actorName', 'movieImg', 'movieSynopsis', 'votes', 'userID', $userID);
 	//query the database for the top voted movie (stopping point) for each actor aggregated for all users
 	$votes = get_topVotes();
 	//count created to add bootstrap rows every four actors
@@ -48,7 +52,7 @@
           		<div class="navbar-collapse collapse">
           			<form class="navbar-form navbar-left" id="form1" role="search">
 				      <div class="form-group">
-				        <input type="text" class="form-control search" id="text1" placeholder="Search" value="">
+				        <input class="form-control typeahead search" type="text" id="text1" placeholder="Search" value="">
 				        <button type="button" class="btn searchButton" id="button1"><span class="glyphicon glyphicon-search searchIcon"></span>
 				    	</button>
 				      </div>
@@ -58,7 +62,7 @@
 				      <li class="dropdown">
 				        <a href="#" id="preSearch2" class="dropdown-toggle" data-toggle="dropdown">Hello, <?php echo $_SESSION['username']; ?> <span class="glyphicon glyphicon-cog drop"></span></a>
 				        <ul class="dropdown-menu">
-				          <!--<li><a href="#">Profile</a></li>-->
+				          <li><a id="trending" href="#">Trending</a></li>
 				          <!--<li><a href="#">Settings</a></li>-->
 				          <!--<li><a href="http://ps11.pstcc.edu/~c2230a11/feeds/">News</a></li>-->
 				          <li>
@@ -103,7 +107,7 @@
 			          	<!--this is bad practice. store the necessary information in unrelated html attributes. this is a crazy hack. don't do this.-->
 			          	<a href="#" class="actorButton tada">
 			          		<img class="featurette-image img-responsive actor" id="<?php echo $actor['actorID']; ?>" src="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $actor['profileImg']; ?>" data-src="holder.js/500x500/auto" alt="<?php echo $actor['actorName']; ?>" name="<?php echo $actor['actorBio']; ?>" width="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $movieImg?>" usemap="<?php echo $movieSynopsis?>">
-			          		<p class="actorName text-center"><?php echo $actor['actorName']; ?></p>
+			          		<p class="actorName text-center" id="http://d3gtl9l2a4fn1j.cloudfront.net/t/p/w500<?php echo $actor['movieImg']; ?>" name="<?php echo $actor['movieSynopsis']; ?>"><?php echo $actor['actorName']; ?></p>
 			          	</a>
 			        </div>
 				<?php endforeach; ?>
@@ -170,7 +174,7 @@
 
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="./js/bootstrap.js"></script>
-		<!--<script src="./js/typeahead.js"></script>-->
+		<script src="./js/typeahead.js"></script>
 		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
     	<script type="text/javascript" src="./js/modernizr.mq.js"></script>
     	<script type="text/javascript" src="./js/jquery.joyride-2.1.js"></script>

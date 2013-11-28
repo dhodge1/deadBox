@@ -57,9 +57,9 @@ function get_userID($col1, $col2, $tab, $par) {
 }
 
 //function to return the actors and related info that a user has voted for
-function get_actors($aID, $aImg, $aBio, $aName, $table, $uID, $par) {
+function get_actors($aID, $aImg, $aBio, $aName, $mImg, $mSyn, $table, $uID, $par) {
 	global $db;
-	$q5 = "SELECT $aID, $aImg, $aBio, $aName
+	$q5 = "SELECT $aID, $aImg, $aBio, $aName, $mImg, $mSyn
 		  FROM $table
 		  WHERE $uID = '$par'";
 	$actors = $db->query($q5);
@@ -67,11 +67,21 @@ function get_actors($aID, $aImg, $aBio, $aName, $table, $uID, $par) {
 }
 
 //crazy query to determine the top movies for each actor based upon ALL user votes
+//having multiple items to select (movieIMG & movieSynopsis) is throwing off the count 
 function get_topVotes() {
 	global $db;
+	//$q6 = "select distinct actorID as aID, (select movieID from votes where actorID=aID group by userID order by count(*) DESC limit 0,1) as topMovie, (select distinct movieImg from votes where movieID=topMovie) as movieImg, (select distinct movieSynopsis from votes where movieID=topMovie) as movieSynopsis from votes";
 	$q6 = "select actorID as aID, movieImg, movieSynopsis, (select movieID from votes where actorID=aID group by userID order by count(*) DESC limit 0,1) as topMovie from votes group by actorID";
 	$topVotes = $db->query($q6);
 	return $topVotes;
+}
+
+//get all movies
+function get_allMovies() {
+	global $db;
+	$q7 = "select DISTINCT(movieID), movieImg, movieSynopsis from votes";
+	$allMovies = $db->query($q7);
+	return $allMovies;
 }
 	
 ?>
